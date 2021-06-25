@@ -1,0 +1,107 @@
+:root {
+   --title: #545454;
+   --header_description: #8c9597;
+   --qizil: rgb(241, 139, 109);
+   --sariq: rgb(241, 210, 4);
+   --nomsiz: rgb(106, 77, 138);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.service-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.service-wrapper > .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 75%;
+    height: 60vh;
+    /* border: 1px solid black; */
+} 
+.service-info {
+    text-align: center;
+    margin-bottom: 25px;
+}
+.service-info h2 {
+    font-weight: 700;
+    font-size: 35px;
+    color: var(--title);
+    
+}
+.service-info p {
+    font-size: 14px;
+    color: var(--header_description);
+}
+.container .card {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    /* border: 1px solid black; */
+    /* background-color: red; */
+    width: 31%;
+    height: 40vh;
+    text-align: center;
+}
+
+.card-header i{
+    color: var(--qizil);
+    font-size: 30px;
+}
+.card-header h2 {
+    color: var(--qizil);
+    margin-bottom: 20px;
+}
+.card-body p {
+    font-family: 'Lato', sans-serif;
+    color: var(--header_description);
+    line-height: 1.7;
+}
+
+.container .card:nth-child(2) .card-header h2, 
+.container .card:nth-child(2) .card-header i{
+    color: var(--sariq);
+}
+.container .card:nth-child(3) .card-header h2, 
+.container .card:nth-child(3) .card-header i{
+    color: var(--nomsiz);
+}
+
+/* responsive */
+
+@media only screen and (max-width: 992px) {
+    .service-wrapper > .container {
+        display: flex;
+        /* align-content: center; */
+        justify-content: center;
+    }
+    .container .card {
+        width: 45%;
+        margin: 0 10px;
+    }
+    .container .card:nth-child(3) {
+        margin: 10px 0;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .container .card {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
