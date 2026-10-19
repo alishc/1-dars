@@ -3,7 +3,7 @@ const SITE = {
   name: "IqlimTex",
   phone: "+998 91 003 96 11",
   email: "alisherazimov553@gmail.com",
-  telegram: "", // Telegram username (bo'sh bo'lsa ko'rsatilmaydi)
+  telegram: "Engineer9701", // Texnik mutaxassis Telegram username (bo'sh bo'lsa ko'rsatilmaydi)
   address: "Toshkent sh."
 };
 

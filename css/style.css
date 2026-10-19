@@ -703,6 +703,58 @@ a {
     color: var(--cold);
 }
 
+.expert {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 24px;
+    padding: 16px 18px;
+    border-radius: var(--radius);
+    background: rgba(42, 171, 238, 0.12);
+    border: 1.5px solid rgba(42, 171, 238, 0.5);
+    transition: 0.2s;
+}
+
+.expert:hover {
+    background: rgba(42, 171, 238, 0.22);
+}
+
+.expert-icon {
+    flex: none;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #2aabee;
+    color: var(--white);
+    font-size: 22px;
+}
+
+.contact-info .expert-icon i {
+    width: auto;
+    color: var(--white);
+}
+
+.expert-text {
+    display: grid;
+    flex: 1;
+    min-width: 0;
+}
+
+.expert-text strong {
+    font-size: 17px;
+}
+
+.expert-text small {
+    color: #c3d1e4;
+}
+
+.contact-info .expert-arrow {
+    width: auto;
+    color: #2aabee;
+}
+
 .contact-form {
     background: var(--white);
     border-radius: 18px;
