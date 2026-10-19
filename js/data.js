@@ -1,9 +1,9 @@
 // Sayt sozlamalari: aloqa ma'lumotlarini o'zingiznikiga almashtiring
 const SITE = {
   name: "IqlimTex",
-  phone: "+998 90 000 00 00",
-  email: "info@iqlimtex.uz",
-  telegram: "iqlimtex",
+  phone: "+998 91 003 96 11",
+  email: "alisherazimov553@gmail.com",
+  telegram: "", // Telegram username (bo'sh bo'lsa ko'rsatilmaydi)
   address: "Toshkent sh."
 };
 

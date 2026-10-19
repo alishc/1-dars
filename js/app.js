@@ -26,6 +26,7 @@ function fillSiteInfo() {
   document.querySelectorAll(".site-email-link").forEach((el) => (el.href = "mailto:" + SITE.email));
   document.querySelectorAll(".site-telegram").forEach((el) => (el.textContent = SITE.telegram));
   document.querySelectorAll(".site-telegram-link").forEach((el) => (el.href = "https://t.me/" + SITE.telegram));
+  document.querySelectorAll(".site-telegram-item").forEach((el) => (el.hidden = !SITE.telegram));
   document.querySelectorAll(".site-address").forEach((el) => (el.textContent = SITE.address));
   $("#year").textContent = new Date().getFullYear();
   $("#catCount").textContent = CATEGORIES.length;
