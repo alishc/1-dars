@@ -21,3 +21,15 @@ har bir bo'limdan mos model va kerakli sonini ko'rsatadi.
 - `dars-1/` — oldingi dars sahifasi
 
 Ishga tushirish: `index.html` faylini brauzerda oching yoki GitHub Pages orqali joylang.
+
+## Davom ettirish uchun
+- Artifact (claude.ai, shaxsiy): https://claude.ai/artifact/XVPzkfVXS4K7oC5f3xotBs
+  Yangilash: `python3 tools/build-artifact.py <papka>` va hosil bo'lgan faylni shu artifact URL'iga publish qilish.
+- Branch: `claude/hvac-website-xizvef` (hali `main` ga qo'shilmagan).
+
+### Keyingi qadamlar
+- [ ] Model kodlari (`IT-...`) va texnik ko'rsatkichlarni haqiqiy Carrier modellari bilan almashtirish
+- [ ] Haqiqiy Carrier rasmlarini `img/` ga qo'yish va `image` maydonini to'ldirish
+- [ ] Narxlarni qo'shish (ixtiyoriy)
+- [ ] Aloqa formasini Telegram botga ulash (hozir pochta dasturini ochadi)
+- [ ] `main` ga pull request va GitHub Pages orqali internetga chiqarish
