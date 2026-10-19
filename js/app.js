@@ -1,6 +1,7 @@
 // ---------- Yordamchi funksiyalar ----------
 const $ = (sel) => document.querySelector(sel);
 const catById = Object.fromEntries(CATEGORIES.map((c) => [c.id, c]));
+const fullName = (p) => `${p.brand || DEFAULT_BRAND} ${p.name}`;
 
 function fmt(n, digits = 1) {
   const rounded = Number(n.toFixed(digits));
@@ -58,6 +59,7 @@ function productCard(p) {
         <span class="product-model">${p.model}</span>
       </div>
       ${p.sub ? `<span class="product-sub">${p.sub}</span>` : ""}
+      <span class="product-brand">${p.brand || DEFAULT_BRAND}</span>
       <h4>${p.name}</h4>
       <table class="specs">${specRows(p)}</table>
       <ul class="features">${p.features.map((f) => `<li><i class="fas fa-check"></i> ${f}</li>`).join("")}</ul>
@@ -136,7 +138,7 @@ function resultCard(r, need) {
         <span class="product-icon"><i class="fas ${cat.icon}"></i></span>
         <div>
           <span class="result-cat">${cat.name}${p.sub ? " · " + p.sub : ""}</span>
-          <h4>${units > 1 ? `<span class="units">${units} ×</span> ` : ""}${p.name}</h4>
+          <h4>${units > 1 ? `<span class="units">${units} ×</span> ` : ""}${fullName(p)}</h4>
         </div>
       </div>
       <div class="result-meta">
@@ -195,7 +197,7 @@ function renderResults(input) {
 // ---------- So'rov (aloqa formasi) ----------
 function requestProduct(model, units) {
   const p = PRODUCTS.find((x) => x.model === model);
-  let msg = `Assalomu alaykum! Menga ${units > 1 ? units + " × " : ""}${p.name} (${p.model}) narxi kerak.`;
+  let msg = `Assalomu alaykum! Menga ${units > 1 ? units + " × " : ""}${fullName(p)} (${p.model}) narxi kerak.`;
   if (lastCalc) {
     const { input, need } = lastCalc;
     msg += `\nMaydon: ${input.area} m², ${ROOM_TYPES[input.roomType].name}.` +

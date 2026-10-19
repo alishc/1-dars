@@ -7,6 +7,9 @@ const SITE = {
   address: "Toshkent sh."
 };
 
+// Barcha mahsulotlar brendi (mahsulotda alohida brand: "..." berilsa, o'shanisi ko'rsatiladi)
+const DEFAULT_BRAND = "Carrier";
+
 // Bo'limlar (kategoriyalar)
 // metric: tanlashda qaysi ko'rsatkich ishlatiladi (cool / heat / air)
 // area: qaysi maydonlar uchun mos (m²), ideal: eng mos keladigan oraliq

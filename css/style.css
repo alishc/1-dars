@@ -580,6 +580,14 @@ a {
     border-radius: 6px;
 }
 
+.product-brand {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #0033a1;
+}
+
 .product-sub {
     font-size: 12px;
     font-weight: 600;
