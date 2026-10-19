@@ -553,6 +553,67 @@ a {
     100% { box-shadow: none; }
 }
 
+.product-media {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    width: calc(100% + 36px);
+    margin: -18px -18px 4px;
+    border-radius: var(--radius) var(--radius) 0 0;
+    background: color-mix(in srgb, var(--c) 8%, #f7f9fc);
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.product-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 12px;
+}
+
+.product-media .illus {
+    width: 82%;
+    height: auto;
+}
+
+.product-media .product-model {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--white);
+}
+
+.result-thumb {
+    flex: none;
+    width: 72px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--c) 8%, #f7f9fc);
+    overflow: hidden;
+}
+
+.result-thumb .illus,
+.result-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 4px;
+}
+
+.illus .b { fill: #eef1f5; stroke: #8d99a8; stroke-width: 2; }
+.illus .w { fill: #ffffff; stroke: #8d99a8; stroke-width: 2; }
+.illus .d { fill: #5b6675; }
+.illus .s { fill: none; stroke: #8d99a8; stroke-width: 2; stroke-linecap: round; }
+.illus .a { fill: var(--c); }
+.illus .as { fill: none; stroke: var(--c); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.illus .hot,
+.illus .cold { fill: none; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.illus .hot { stroke: #e8590c; }
+.illus .cold { stroke: #1c7ed6; }
+
 .product-top {
     display: flex;
     justify-content: space-between;
@@ -622,6 +683,7 @@ a {
     display: grid;
     gap: 3px;
     flex: 1;
+    align-content: start;
 }
 
 .features i {

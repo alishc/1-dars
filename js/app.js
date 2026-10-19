@@ -54,8 +54,8 @@ function productCard(p) {
   const cat = catById[p.cat];
   return `
     <article class="product" id="p-${p.model}" style="--c:${cat.color}">
-      <div class="product-top">
-        <span class="product-icon"><i class="fas ${cat.icon}"></i></span>
+      <div class="product-media">
+        ${productImage(p)}
         <span class="product-model">${p.model}</span>
       </div>
       ${p.sub ? `<span class="product-sub">${p.sub}</span>` : ""}
@@ -135,7 +135,7 @@ function resultCard(r, need) {
     <article class="result-card${r.ideal ? " is-ideal" : ""}" style="--c:${cat.color}">
       ${r.ideal ? `<span class="badge"><i class="fas fa-star"></i> Eng mos</span>` : ""}
       <div class="result-head">
-        <span class="product-icon"><i class="fas ${cat.icon}"></i></span>
+        <span class="result-thumb">${productImage(p)}</span>
         <div>
           <span class="result-cat">${cat.name}${p.sub ? " · " + p.sub : ""}</span>
           <h4>${units > 1 ? `<span class="units">${units} ×</span> ` : ""}${fullName(p)}</h4>

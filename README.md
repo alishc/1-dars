@@ -16,6 +16,8 @@ har bir bo'limdan mos model va kerakli sonini ko'rsatadi.
 - `css/style.css` — dizayn
 - `js/data.js` — **telefon, email, Telegram**, bo'limlar, mahsulotlar va hisob koeffitsiyentlari (shu yerda tahrirlang)
 - `js/app.js` — katalog, kalkulyator va so'rov formasi
+- `js/illustrations.js` — har bir jihoz turi uchun SVG chizmalar
+- `img/` — haqiqiy mahsulot rasmlari uchun papka: rasmni shu yerga qo'ying va `js/data.js` da mahsulotga `image: "img/fayl.jpg"` qo'shing — chizma o'rniga rasm chiqadi
 - `dars-1/` — oldingi dars sahifasi
 
 Ishga tushirish: `index.html` faylini brauzerda oching yoki GitHub Pages orqali joylang.
