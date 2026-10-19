@@ -1,70 +1,164 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Github</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>IqlimTex — HVAC jihozlari</title>
+    <meta name="description" content="Chiller, VRF, AHU, pretsizion konditsioner, issiqlik nasosi, split va multi-split, boyler, gaz kotyoli va ventilyatsiya jihozlari. Maydoningizga mos jihozni tanlang.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-
-    <div class="service-wrapper">
-        <div class="service-info">
-            <h2>Services</h2>
-            <p>In order to help you grow your business, our carefully selected experts can advise you in in the
-                following areas:</p>
+    <!-- Header -->
+    <header class="header">
+        <div class="wrap header-inner">
+            <a href="#" class="logo"><i class="fas fa-snowflake"></i> <span class="site-name">IqlimTex</span></a>
+            <button class="menu-btn" aria-label="Menyu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+            <nav class="nav">
+                <a href="#calc">Kalkulyator</a>
+                <a href="#catalog">Katalog</a>
+                <a href="#services">Xizmatlar</a>
+                <a href="#contact">Aloqa</a>
+                <a href="#" class="nav-phone site-phone-link"><i class="fas fa-phone-alt"></i> <span class="site-phone"></span></a>
+            </nav>
         </div>
-        <div class="container">
+    </header>
 
-            <div class="card">
-                <div class="card-header">
-                    <i class="fas fa-pencil-alt"></i>
-                    <h2>Web Design</h2>
-                </div>
-                <div class="card-body">
-                    <p>
-                        Consectetur adipiscing elit. Praesent molestie urna hendrerit erat tincidunt tempus. Aliquam a
-                        leo risus. Fusce a metus non augue dapibus porttitor at in mauris. Pellentesque commodo...
-                    </p>
-                </div>
+    <!-- Hero + kalkulyator -->
+    <section class="hero" id="calc">
+        <div class="wrap hero-inner">
+            <div class="hero-text">
+                <span class="tag">HVAC jihozlari va loyihalash</span>
+                <h1>Har qanday maydon uchun <span class="cold">sovutish</span>, <span class="hot">isitish</span> va ventilyatsiya</h1>
+                <p>Maydoningizni kiriting — biz sizga mos keladigan split, multi-split, VRF, chiller, AHU, issiqlik nasosi, kotyol, boyler va ventilyatsiya jihozlarini darhol ko'rsatamiz.</p>
+                <ul class="hero-points">
+                    <li><i class="fas fa-check-circle"></i> <span id="catCount"></span> ta bo'lim, <span id="modelCount"></span> ta model</li>
+                    <li><i class="fas fa-check-circle"></i> Bepul o'lchov va loyiha</li>
+                    <li><i class="fas fa-check-circle"></i> O'rnatish va servis xizmati</li>
+                </ul>
             </div>
-            <div class="card">
-                <div class="card-header">
-                    <i class="fas fa-code"></i>
-                    <h2>Web Design</h2>
+
+            <form class="calc-card" id="calcForm" novalidate>
+                <h2><i class="fas fa-calculator"></i> Jihoz tanlash kalkulyatori</h2>
+
+                <label class="field field-main">
+                    <span>Maydon (m²)</span>
+                    <input type="number" id="area" min="5" max="60000" step="1" placeholder="Masalan: 120" required>
+                </label>
+
+                <div class="field-row">
+                    <label class="field">
+                        <span>Shift balandligi (m)</span>
+                        <input type="number" id="height" min="2" max="20" step="0.1" value="2.7">
+                    </label>
+                    <label class="field">
+                        <span>Bino turi</span>
+                        <select id="roomType"></select>
+                    </label>
                 </div>
-                <div class="card-body">
-                    <p>
-                        Consectetur adipiscing elit. Praesent molestie urna hendrerit erat tincidunt tempus. Aliquam a
-                        leo risus. Fusce a metus non augue dapibus porttitor at in mauris. Pellentesque commodo...
-                    </p>
+
+                <div class="field-row">
+                    <label class="field">
+                        <span>Issiqlik izolyatsiyasi</span>
+                        <select id="insulation">
+                            <option value="good">Yaxshi</option>
+                            <option value="mid" selected>O'rtacha</option>
+                            <option value="bad">Yomon</option>
+                        </select>
+                    </label>
+                    <label class="field">
+                        <span>Quyosh tomoni</span>
+                        <select id="sun">
+                            <option value="0">Oddiy</option>
+                            <option value="1">Ko'p quyosh tushadi</option>
+                        </select>
+                    </label>
                 </div>
+
+                <p class="calc-error" id="calcError" hidden></p>
+                <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-search"></i> Mos jihozlarni ko'rsatish</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Natijalar -->
+    <section class="results" id="results" hidden>
+        <div class="wrap">
+            <div class="section-head">
+                <h2>Sizning maydoningiz uchun tavsiyalar</h2>
+                <p id="resultsSummary"></p>
             </div>
-            <div class="card">
-                <div class="card-header">
-                    <i class="fas fa-search"></i>
-                    <h2>Web Design</h2>
-                </div>
-                <div class="card-body">
-                    <p>
-                        Consectetur adipiscing elit. Praesent molestie urna hendrerit erat tincidunt tempus. Aliquam a
-                        leo risus. Fusce a metus non augue dapibus porttitor at in mauris. Pellentesque commodo...
-                    </p>
-                </div>
+            <div class="needs" id="needs"></div>
+            <div id="resultGroups"></div>
+            <p class="note"><i class="fas fa-info-circle"></i> Hisob taxminiy. Aniq tanlov uchun mutaxassisimiz bepul o'lchov o'tkazadi va issiqlik hisobini bajaradi.</p>
+        </div>
+    </section>
+
+    <!-- Katalog -->
+    <section class="catalog" id="catalog">
+        <div class="wrap">
+            <div class="section-head">
+                <h2>Jihozlar katalogi</h2>
+                <p>Barcha turdagi HVAC jihozlari bo'limlar bo'yicha</p>
             </div>
         </div>
-    </div>
+        <div class="cat-nav-wrap">
+            <nav class="wrap cat-nav" id="catNav"></nav>
+        </div>
+        <div class="wrap" id="catalogSections"></div>
+    </section>
 
+    <!-- Xizmatlar -->
+    <section class="services" id="services">
+        <div class="wrap">
+            <div class="section-head">
+                <h2>Xizmatlarimiz</h2>
+                <p>Loyihadan servisgacha — to'liq tsikl</p>
+            </div>
+            <div class="service-grid">
+                <div class="service"><i class="fas fa-ruler-combined"></i><h3>O'lchov va hisob</h3><p>Ob'ektga chiqib, issiqlik yuklamasini hisoblaymiz va optimal tizimni tavsiya qilamiz.</p></div>
+                <div class="service"><i class="fas fa-drafting-compass"></i><h3>Loyihalash</h3><p>HVAC, ventilyatsiya va isitish tizimlari loyihasi, chizmalar va spetsifikatsiya.</p></div>
+                <div class="service"><i class="fas fa-tools"></i><h3>Montaj</h3><p>Sertifikatlangan muhandislar tomonidan o'rnatish va ishga tushirish.</p></div>
+                <div class="service"><i class="fas fa-headset"></i><h3>Servis</h3><p>Kafolat va kafolatdan keyingi xizmat, mavsumiy texnik ko'rik.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aloqa -->
+    <section class="contact" id="contact">
+        <div class="wrap contact-inner">
+            <div class="contact-info">
+                <h2>Bog'lanish</h2>
+                <p>Savolingiz bormi yoki narx kerakmi? So'rov qoldiring — mutaxassisimiz siz bilan bog'lanadi.</p>
+                <ul>
+                    <li><i class="fas fa-phone-alt"></i> <a href="#" class="site-phone-link"><span class="site-phone"></span></a></li>
+                    <li><i class="fab fa-telegram-plane"></i> <a href="#" class="site-telegram-link" target="_blank" rel="noopener">@<span class="site-telegram"></span></a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="#" class="site-email-link"><span class="site-email"></span></a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> <span class="site-address"></span></li>
+                </ul>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <label class="field"><span>Ismingiz</span><input type="text" id="cName" required></label>
+                <label class="field"><span>Telefon</span><input type="tel" id="cPhone" placeholder="+998" required></label>
+                <label class="field"><span>Xabar</span><textarea id="cMessage" rows="5"></textarea></label>
+                <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-paper-plane"></i> So'rov yuborish</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="wrap">© <span id="year"></span> <span class="site-name">IqlimTex</span>. Barcha huquqlar himoyalangan.</div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>
